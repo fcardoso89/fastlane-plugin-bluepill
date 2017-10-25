@@ -4,7 +4,8 @@ module Fastlane
       def self.run(params)
         UI.message("Start test by using Bluepill: https://github.com/linkedin/bluepill")
         cmd =  bin_bluepill.to_s
-        cmd << " --xctestrun-path #{params[:xctestrun]}"
+        cmd << " #{params[:xctestrun]}"
+        cmd << " -s #{params[:scheme]}"
         cmd << " -a #{params[:app]}"
         cmd << " -o #{params[:output_dir]}"
         cmd << " -d \"#{params[:device]}\""
